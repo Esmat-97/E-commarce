@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" id="b">
+
+       <form #myForm="ngForm" (ngSubmit)="submitForm(myForm.value)">
+
+  <ion-input label="First name" type="text" label-placement="floating" fill="solid" placeholder="Enter text" name="fname" #fname="ngModel" required ngModel></ion-input>
+  @if(fname.invalid && fname.touched){
+    @if(fname.errors?.['required']){
+      <span> the first name is required </span>
+        }
+    }
+    
+  <br />
+  
+  <ion-input label="Last name" type="text" label-placement="floating" fill="solid" placeholder="Enter text" required  name="lname" #lname="ngModel"  ngModel></ion-input>
+  @if(lname.invalid && lname.touched){
+    @if(lname.errors?.['required']){
+      <span> the last name is required </span>
+        }
+    }
+  <br>
+  <ion-input label="Email" type="email" label-placement="floating" fill="solid" placeholder="Enter text" required name="email" #email="ngModel"  ngModel></ion-input>
+  @if(email.invalid && email.touched){
+    @if(email.errors?.['required']){
+      <span> the email is required </span>
+        }
+    }
+  <br>
+  <ion-input label="Password" type="Password" label-placement="floating" fill="solid" placeholder="Enter text" required name="password" #password="ngModel"  ngModel></ion-input>
+  @if(password.invalid && password.touched){
+    @if(password.errors?.['required']){
+      <span> the password is required </span>
+        }
+    }
+  <br>
+  <ion-input label="Repeat Password" type="Password" label-placement="floating" fill="solid" placeholder="Enter text" required name="repassword"
+    #repassword="ngModel"  ngModel></ion-input>
+  
+  @if(repassword.invalid && repassword.touched){
+    @if(repassword.errors?.['required']){
+      <span> the repassword is required </span>
+        }
+    }
+
+    <ion-button color="primary" type="submit">submit</ion-button>  
+</form>
+    
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+</ion-content>

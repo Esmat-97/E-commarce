@@ -1,4 +1,4 @@
-# online Clinic
+# E-Commerce
 
 Welcome to my E-commerce! This project does amazing things and you'll love it.
 

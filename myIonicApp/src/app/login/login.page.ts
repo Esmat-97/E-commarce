@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵclassMapInterpolateV } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -11,15 +13,30 @@ import { IonicModule } from '@ionic/angular';
 })
 
 
-export class LoginPage implements OnInit {
 
-  submitForm(formData: any) {
+
+export class LoginPage  {
+
+  constructor(private http:HttpClient){}
+
+  signData:any={
+    username:'',
+    email:'',
+    password:''
+  };
+
+  submitForm(main: any) {
   
-    console.log('Form data submitted:', formData);
-  }
-  constructor() { }
+    this.signData=main.value;
+  
+    console.log('Form data submitted:', this.signData);
 
-  ngOnInit() {
+    this.http.post('http://localhost:1999/api',this.signData).subscribe( response =>{
+
+    console.log('Data sent successfully');
+   
+    })
   }
+ 
 
 }

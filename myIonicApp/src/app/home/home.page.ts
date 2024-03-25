@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  info:any;
+  users:any =[];
 
-  constructor() {
-    fetch("https://dummyjson.com/products")
-    .then(Response=>Response.json())
-    .then(data=>{console.log(data.products)
-       this.info= data.products})
-  }
+ constructor(private http:HttpClient){}
+
+ ngOnInit(){
+
+this.http.get('http://localhost:1999/').subscribe( (res:any)=>{
+console.log(res);
+this.users=res;
+
+})
+ }
 
 }

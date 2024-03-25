@@ -13,7 +13,7 @@
     <ion-row>
       <ion-col size="4" id="b">
 
-       <form #myForm="ngForm" (ngSubmit)="submitForm(myForm.value)">
+       <form #main="ngForm" (ngSubmit)="submitForm(main)">
 
   <ion-input label="First name" type="text" label-placement="floating" fill="solid" placeholder="Enter text" name="fname" #fname="ngModel" required ngModel></ion-input>
   @if(fname.invalid && fname.touched){
@@ -45,14 +45,7 @@
         }
     }
   <br>
-  <ion-input label="Repeat Password" type="Password" label-placement="floating" fill="solid" placeholder="Enter text" required name="repassword"
-    #repassword="ngModel"  ngModel></ion-input>
-  
-  @if(repassword.invalid && repassword.touched){
-    @if(repassword.errors?.['required']){
-      <span> the repassword is required </span>
-        }
-    }
+ 
 
     <ion-button color="primary" type="submit">submit</ion-button>  
 </form>

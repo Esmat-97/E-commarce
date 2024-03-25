@@ -11,8 +11,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link active" aria-current="page" href="/home">Home</a>
+              <a class="nav-link" href="/login">login</a>
               <a class="nav-link" href="#">Pricing</a>
               <a class="nav-link disabled" aria-disabled="true">Disabled</a>
             </div>
@@ -35,13 +35,17 @@
         <ion-item>
 
           <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col" *ngFor="let user of info">
+            <div class="col" *ngFor="let user of users">
               <div class="card h-100">
                 <img [src]="user.thumbnail" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">{{user.title}}</h5>
-                  <p class="card-text"> price :{{user.price}}</p>
-                  <div class="card-text"> rating:{{user.rating}}</div>
+                  <h5 class="card-title">{{user.username}}</h5>
+                  <p class="card-text"> {{user.email}}</p>
+                  @if(user.role === 'admin'){
+                    <button>delete</button>
+                  }
+              
+                
                 </div>
               </div>
             </div>

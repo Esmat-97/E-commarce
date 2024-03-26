@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './users.page.html',
   styleUrls: ['./users.page.scss'],
 })
+
 export class UsersPage  {
 
   productlist:any=[];
@@ -18,7 +19,7 @@ export class UsersPage  {
   constructor(private htpp:HttpClient) { }
 
   ngOnInit() {
-    this.htpp.get(' http://localhost:1999/getusers').subscribe( (res :any ) =>{
+    this.htpp.get('http://localhost:1999/getusers').subscribe( (res :any ) =>{
 
     console.log(res);
     this.productlist=res;

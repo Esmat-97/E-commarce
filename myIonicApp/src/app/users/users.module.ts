@@ -15,6 +15,6 @@ import { UsersPage } from './users.page';
     IonicModule,
     UsersPageRoutingModule
   ],
-  declarations: [UsersPage]
+ 
 })
 export class UsersPageModule {}

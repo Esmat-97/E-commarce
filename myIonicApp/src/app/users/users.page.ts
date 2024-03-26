@@ -1,15 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-users',
+  imports:[IonicModule,CommonModule],
+  standalone:true,
   templateUrl: './users.page.html',
   styleUrls: ['./users.page.scss'],
 })
-export class UsersPage implements OnInit {
+export class UsersPage  {
 
-  constructor() { }
+  productlist:any=[];
+
+  constructor(private htpp:HttpClient) { }
 
   ngOnInit() {
+    this.htpp.get(' http://localhost:1999/getusers').subscribe( (res :any ) =>{
+
+    console.log(res);
+    this.productlist=res;
+    })
+    
   }
 
 }

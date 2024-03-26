@@ -14,7 +14,7 @@ export class HomePage {
 
  ngOnInit(){
 
-this.http.get('http://localhost:1999/').subscribe( (res:any)=>{
+this.http.get('http://localhost:1999/getproducts').subscribe( (res:any)=>{
 console.log(res);
 this.users=res;
 

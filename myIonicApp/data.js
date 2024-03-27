@@ -65,6 +65,22 @@ app.post('/api', (req, res) => {
 });
 
 
+
+app.post('/insertproduct', (req, res) => {
+  const { product, price , user_id , quantity_in_stock }= req.body;
+
+ 
+  // Insert data into MySQL
+  const query = 'INSERT INTO products (product_name, price , user_id) VALUES (?,?,?,?)';
+  con.query(query, [ product, price , user_id , quantity_in_stock], (error, results) => {
+
+    if (error) throw error;
+    console.log('Data inserted into MySQL');
+    res.send('Data inserted into MySQL');
+  });
+});
+
+
 app.listen(1999,()=>{
     console.log('the server listen at posrt http://localhost:1999');
     });

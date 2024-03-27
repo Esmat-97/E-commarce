@@ -1,27 +1,27 @@
-<form class="row g-3">
+<form class="row g-3"  #main="ngForm" (ngSubmit)="submitForm(main)">
 
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">Email</label>
-    <input type="email" class="form-control" id="inputEmail4">
+    <label for="inputEmail4" class="form-label" >product</label>
+    <input type="text" class="form-control"  name="product"  placeholder="product"  required  #product="ngModel"  ngModel>
   </div>
   <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Password</label>
-    <input type="password" class="form-control" id="inputPassword4">
+    <label for="inputPassword4" class="form-label"> price</label>
+    <input type="text" class="form-control"   name="price"  placeholder="price"  required  #price="ngModel"  ngModel>
   </div>
   <div class="col-12">
-    <label for="inputAddress" class="form-label">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <label for="inputAddress" class="form-label">user_id</label>
+    <input type="text" class="form-control"   name="user_id"  placeholder="user_id"  required  #user_id="ngModel"  ngModel >
   </div>
 
 
-  <div class="mb-3">
-    <input type="file" class="form-control" aria-label="file example" required>
-    <div class="invalid-feedback">Example invalid form file feedback</div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">quantity_in_stock</label>
+    <input type="text" class="form-control"   name="quantity_in_stock"  placeholder="quantity_in_stock"  required  #quantity_in_stock="ngModel"  ngModel >
   </div>
  
 
   <div class="col-12">
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <button type="submit" class="btn btn-primary">Add</button>
   </div>
 </form>
     

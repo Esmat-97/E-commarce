@@ -15,22 +15,7 @@
 
        <form #main="ngForm" (ngSubmit)="submitForm(main)">
 
-  <ion-input label="First name" type="text" label-placement="floating" fill="solid" placeholder="Enter text" name="fname" #fname="ngModel" required ngModel></ion-input>
-  @if(fname.invalid && fname.touched){
-    @if(fname.errors?.['required']){
-      <span> the first name is required </span>
-        }
-    }
-    
-  <br />
-  
-  <ion-input label="Last name" type="text" label-placement="floating" fill="solid" placeholder="Enter text" required  name="lname" #lname="ngModel"  ngModel></ion-input>
-  @if(lname.invalid && lname.touched){
-    @if(lname.errors?.['required']){
-      <span> the last name is required </span>
-        }
-    }
-  <br>
+ 
   <ion-input label="Email" type="email" label-placement="floating" fill="solid" placeholder="Enter text" required name="email" #email="ngModel"  ngModel></ion-input>
   @if(email.invalid && email.touched){
     @if(email.errors?.['required']){

@@ -20,20 +20,27 @@ export class LoginPage  {
   constructor(private http:HttpClient){}
 
   signData:any={
-    username:'',
-    email:'',
-    password:''
+
   };
+
+  gettingData:any=[];
 
   submitForm(main: any) {
   
     this.signData=main.value;
-  
-    console.log('Form data submitted:', this.signData);
 
-    this.http.post('http://localhost:1999/api',this.signData).subscribe( response =>{
+    this.http.get('http://localhost:1999/getusers').subscribe(  (response :any)=>{
 
-    console.log('Data sent successfully');
+      this.gettingData = response;
+
+   for( let x of this.gettingData){
+   if (x.email === this.signData.email && x.password === this.signData.password){
+      console.log('you are authrized');
+   }
+ }
+
+
+
    
     })
   }

@@ -67,12 +67,11 @@ app.post('/api', (req, res) => {
 
 
 app.post('/insertproduct', (req, res) => {
-  const { product, price , user_id , quantity_in_stock }= req.body;
+  const { product, image, price , user_id , quantity_in_stock }= req.body;
 
- 
   // Insert data into MySQL
-  const query = 'INSERT INTO products (product_name, price , user_id) VALUES (?,?,?,?)';
-  con.query(query, [ product, price , user_id , quantity_in_stock], (error, results) => {
+  const query = 'INSERT INTO products (product_name , image, price , quantity_in_stock, user_id ) VALUES (?,?,?,?,?)';
+  con.query(query, [ product, image , price , quantity_in_stock , user_id ], (error, results) => {
 
     if (error) throw error;
     console.log('Data inserted into MySQL');

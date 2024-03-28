@@ -35,10 +35,10 @@
       <ion-list>  
         <ion-item>
 
-          <div class="row row-cols-1 row-cols-md-1 g-4">
+          <div class="row row-cols-1 row-cols-md-1  row-cols-md-3 g-4">
             <div class="col" *ngFor="let user of users">
               <div class="card h-100">
-                <img [src]="user.thumbnail" class="card-img-top" alt="...">
+                <img [src]=" 'assets/' + user.image" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{user.product_name}}</h5>
                   <p class="card-text"> {{user.price}}</p>

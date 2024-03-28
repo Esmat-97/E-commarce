@@ -34,6 +34,7 @@ export class LoginPage  {
       this.gettingData = response;
 
    for( let x of this.gettingData){
+    
    if (x.email === this.signData.email && x.password === this.signData.password){
       console.log('you are authrized');
    }

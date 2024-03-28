@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomePage implements OnInit{
   products:any =[];
 
 
- constructor(private http:HttpClient){}
+ constructor(private http:HttpClient ,private authservice:AuthService){}
 
  ngOnInit(){
 
@@ -25,6 +26,11 @@ this.role=localStorage.getItem('role') as string;
 
 })
 
+ }
+
+
+ logout(){
+this.authservice.logout();
  }
 
 

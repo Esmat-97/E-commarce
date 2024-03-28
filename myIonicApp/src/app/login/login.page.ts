@@ -25,7 +25,6 @@ export class LoginPage  {
   gettingData:any=[];
 
 
-
   submitForm(main: any) {
   
     this.signData=main.value;
@@ -37,7 +36,7 @@ export class LoginPage  {
    for( let x of this.gettingData){
     
    if (x.email === this.signData.email && x.password === this.signData.password){
-      console.log('you are authrized');
+   
       this.router.navigate(['/home']);
 
       localStorage.setItem('email',x.email);

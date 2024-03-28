@@ -46,14 +46,14 @@
         <ion-item>
 
           <div class="row row-cols-1 row-cols-md-1  row-cols-md-3 g-4">
-            <div class="col" *ngFor="let user of products">
+            <div class="col" *ngFor="let user of products , let i =index">
               <div class="card h-100">
                 <img [src]=" 'assets/' + user.image" class="card-img-top w-100" alt="..." >
                 <div class="card-body">
                   <h5 class="card-title">{{user.product_name}}</h5>
                   <p class="card-text"> {{user.price}} Egp</p>
                   @if(role === 'admin'){
-                    <button class="btn btn-secondary">delete</button>
+                    <button class="btn btn-secondary" (click)="del(user.product_id)">delete</button>
                     <br>
                     <button class="btn btn-warning">update</button>
                   }

@@ -20,7 +20,6 @@ export class UsersPage  {
 
   ngOnInit() {
     this.htpp.get('http://localhost:1999/getusers').subscribe( (res :any ) =>{
-
     console.log(res);
     this.productlist=res;
     })

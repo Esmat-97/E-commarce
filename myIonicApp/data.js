@@ -79,6 +79,27 @@ app.post('/insertproduct', (req, res) => {
 });
 
 
+
+
+app.delete('/delproduct', (req, res) => {
+  
+  const {id}= req.query;
+
+  const query = 'DELETE FROM products WHERE product_id = ?';
+  con.query(query, [id], (error, results) => {
+    if (error) {
+      console.error('Error deleting product:', error);
+      return res.status(500).send('Error deleting product');
+    }
+
+
+
+    console.log('Product deleted from MySQL');
+    res.status(200).send('Product deleted from MySQL');
+  });
+});
+
+
 app.listen(1999,()=>{
     console.log('the server listen at posrt http://localhost:1999');
     });

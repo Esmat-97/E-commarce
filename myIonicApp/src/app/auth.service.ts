@@ -8,12 +8,14 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   logout(): void {
-localStorage.removeItem('token');
+localStorage.removeItem('email');
+localStorage.removeItem('role');
   }
 
 
   isAuthenticated(): boolean {
-return localStorage.getItem('token') ? true : false ;
+return localStorage.getItem('email') ? true : false ;
+
   }
 
 }

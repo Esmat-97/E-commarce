@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -6,9 +6,12 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
-  users:any =[];
+  role:string='';
+
+  products:any =[];
+
 
  constructor(private http:HttpClient){}
 
@@ -16,9 +19,13 @@ export class HomePage {
 
 this.http.get('http://localhost:1999/getproducts').subscribe( (res:any)=>{
 console.log(res);
-this.users=res;
+this.products=res;
+
+this.role=localStorage.getItem('role') as string;
 
 })
+
  }
+
 
 }

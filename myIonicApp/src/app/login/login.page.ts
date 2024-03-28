@@ -38,10 +38,11 @@ export class LoginPage  {
     
    if (x.email === this.signData.email && x.password === this.signData.password){
       console.log('you are authrized');
-
-      localStorage.setItem('token',this.gettingData);
-
       this.router.navigate(['/home']);
+
+      localStorage.setItem('email',x.email);
+      localStorage.setItem('role',x.role);
+      
    }
  }
 

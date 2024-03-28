@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'addusers',
     loadChildren: () => import('./addusers/addusers.module').then( m => m.AddusersPageModule)
   },
+  {
+    path: 'myaccount',
+    loadChildren: () => import('./myaccount/myaccount.module').then( m => m.MyaccountPageModule)
+  },
 
 
 ];

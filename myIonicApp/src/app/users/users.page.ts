@@ -26,4 +26,11 @@ export class UsersPage  {
     
   }
 
+  del(id :number){
+
+    console.log(`${id}`)
+    this.htpp.delete(`http://localhost:1999/deluser?id=${id}`).subscribe( (res :any ) =>{
+    })
+  }
+
 }

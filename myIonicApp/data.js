@@ -86,18 +86,27 @@ app.post('/insertproduct', (req, res) => {
 /* delete data */
 
 app.delete('/delproduct', (req, res) => {
-
   const {id}= req.query;
-
   const query = 'DELETE FROM products WHERE product_id = ?';
   con.query(query, [id], (error, results) => {
     if (error) {
       console.error('Error deleting product:', error);
       return res.status(500).send('Error deleting product');
     }
+    console.log('Product deleted from MySQL');
+    res.status(200).send('Product deleted from MySQL');
+  });
+});
 
 
-
+app.delete('/deluser', (req, res) => {
+  const {id}= req.query;
+  const query = 'DELETE FROM users WHERE user_id = ?';
+  con.query(query, [id], (error, results) => {
+    if (error) {
+      console.error('Error deleting product:', error);
+      return res.status(500).send('Error deleting product');
+    }
     console.log('Product deleted from MySQL');
     res.status(200).send('Product deleted from MySQL');
   });

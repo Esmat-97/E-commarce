@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,13 +18,13 @@ import { HttpClient } from '@angular/common/http';
 
 export class LoginPage  {
 
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient ,private router:Router){}
 
-  signData:any={
-
-  };
+  signData:any={};
 
   gettingData:any=[];
+
+
 
   submitForm(main: any) {
   
@@ -37,6 +38,10 @@ export class LoginPage  {
     
    if (x.email === this.signData.email && x.password === this.signData.password){
       console.log('you are authrized');
+
+      localStorage.setItem('token',this.gettingData);
+
+      this.router.navigate(['/home']);
    }
  }
 

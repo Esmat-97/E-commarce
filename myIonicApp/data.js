@@ -51,11 +51,10 @@ app.get('/getproducts',(req,res)=>{
 });
 
 
+
+
 app.post('/api', (req, res) => {
   const { fname, email , password} = req.body;
-
- 
-  // Insert data into MySQL
   const query = 'INSERT INTO users (username, email , password) VALUES (?,?,?)';
   con.query(query, [ fname, email , password], (error, results) => {
     if (error) throw error;

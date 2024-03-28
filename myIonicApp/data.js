@@ -52,11 +52,12 @@ app.get('/getproducts',(req,res)=>{
 
 
 
+/* insert data */
 
 app.post('/api', (req, res) => {
-  const { fname, email , password} = req.body;
+  const { username , email , password} = req.body;
   const query = 'INSERT INTO users (username, email , password) VALUES (?,?,?)';
-  con.query(query, [ fname, email , password], (error, results) => {
+  con.query(query, [ username , email , password], (error, results) => {
     if (error) throw error;
     console.log('Data inserted into MySQL');
     res.send('Data inserted into MySQL');
@@ -81,8 +82,11 @@ app.post('/insertproduct', (req, res) => {
 
 
 
+
+/* delete data */
+
 app.delete('/delproduct', (req, res) => {
-  
+
   const {id}= req.query;
 
   const query = 'DELETE FROM products WHERE product_id = ?';

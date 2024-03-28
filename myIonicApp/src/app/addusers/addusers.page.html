@@ -1,0 +1,76 @@
+
+   
+<ion-header>  
+  <ion-toolbar>  
+    <ion-title>  
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="/home">Home</a>
+              <a class="nav-link" href="/login">login</a>
+              <a class="nav-link" href="/users">users</a>
+              <a class="nav-link" href="/addproducts">add products</a>
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </ion-title>  
+  </ion-toolbar>  
+</ion-header> 
+
+
+
+
+<ion-content>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" id="b">
+
+       <form #main="ngForm" (ngSubmit)="submitForm(main)">
+
+  <ion-input label="username" type="text" label-placement="floating" fill="solid" placeholder="Enter text" name="username" #username="ngModel" required ngModel></ion-input>
+  @if(username.invalid && username.touched){
+    @if(username.errors?.['required']){
+      <span> the username is required </span>
+        }
+    }
+    
+  <br />
+  
+  <ion-input label="email" type="text" label-placement="floating" fill="solid" placeholder="Enter text" required  name="email" #email="ngModel"  ngModel></ion-input>
+  @if(email.invalid && email.touched){
+    @if(email.errors?.['required']){
+      <span> the email is required </span>
+        }
+    }
+
+  <br>
+  
+  <ion-input label="Password" type="Password" label-placement="floating" fill="solid" placeholder="Enter text" required name="password" #password="ngModel"  ngModel></ion-input>
+  @if(password.invalid && password.touched){
+    @if(password.errors?.['required']){
+      <span> the password is required </span>
+        }
+    }
+  <br>
+ 
+
+    <ion-button color="primary" type="submit">submit</ion-button>  
+</form>
+    
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+</ion-content>
+
+

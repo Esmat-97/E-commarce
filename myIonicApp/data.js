@@ -3,7 +3,7 @@ const mysql=require('mysql');
 var bodyParser=require('body-parser');
 const cors=require('cors');
 const app=express();
-const dataget=require('./dataget');
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -15,6 +15,39 @@ host:'localhost',
 user:'root',
 password:'',
 database:'market'
+});
+
+
+app.get('/getusers',(req,res)=>{
+  const query = "SELECT * FROM  users";
+  con.query(query, (err, result) => {
+    if (err) {
+   
+        console.error("Error executing query:", err);
+        res.status(500).json({ error: "Failed to fetch data" });
+    } else {
+   
+        res.json(result);
+    }
+});
+    
+});
+
+
+
+app.get('/getproducts',(req,res)=>{
+  const query = "SELECT * FROM  products";
+  con.query(query, (err, result) => {
+    if (err) {
+    
+        console.error("Error executing query:", err);
+        res.status(500).json({ error: "Failed to fetch data" });
+    } else {
+      
+        res.json(result);
+    }
+});
+    
 });
 
 
@@ -49,8 +82,6 @@ app.post('/insertproduct', (req, res) => {
 
 
 
-
-
 /* delete data */
 
 app.delete('/delproduct', (req, res) => {
@@ -80,8 +111,18 @@ app.delete('/deluser', (req, res) => {
   });
 });
 
-
-app.use('/get', dataget)
+app.put('/updateproduct', (req, res) => {
+  const { id, price } = req.body; 
+  const query = 'UPDATE products SET price = ? WHERE product_id = ?';
+  con.query(query, [  price , id], (error, results) => {
+    if (error) {
+      console.error('Error updating user:', error);
+      return res.status(500).send('Error updating user');
+    }
+    console.log('User updated in MySQL');
+    res.status(200).send('User updated in MySQL');
+  });
+});
 
 app.listen(1999,()=>{
     console.log('the server listen at posrt http://localhost:1999');

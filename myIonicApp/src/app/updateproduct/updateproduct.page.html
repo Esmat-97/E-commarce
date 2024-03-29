@@ -1,17 +1,18 @@
-<form>
+<form #main="ngForm" (ngSubmit)="submitForm(main)">
 
-  <div  >
 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">price</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [value]="iti.price">
+    <input type="text" class="form-control" id="exampleInputEmail1"   name="price" #price="ngModel" ngModel >
   </div>
+
+  
+  
 
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">id</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" [value]="iti.product_id">
+    <label for="exampleInputPassword1" class="form-label" >id</label>
+    <input type="text" class="form-control" id="exampleInputPassword1"  name="id" #id="ngModel" ngModel [value]="iti.product_id">
 
-  </div>
 
   </div>
 

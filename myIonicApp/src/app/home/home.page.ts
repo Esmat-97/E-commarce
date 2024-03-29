@@ -51,8 +51,8 @@ this.http.delete(`http://localhost:1999/delproduct?id=${id}`).subscribe( (respon
 
 
 
-UpdateForm(){
-this.router.navigate(['/updateproduct'])
+UpdateForm(id :number){
+this.router.navigate(['/updateproduct',id])
 }
 
 }

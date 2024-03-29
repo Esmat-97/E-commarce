@@ -3,6 +3,7 @@ const mysql=require('mysql');
 var bodyParser=require('body-parser');
 const cors=require('cors');
 const app=express();
+const dataget=require('./dataget');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -16,39 +17,6 @@ password:'',
 database:'market'
 });
 
-
-
-app.get('/getusers',(req,res)=>{
-  const query = "SELECT * FROM  users";
-  con.query(query, (err, result) => {
-    if (err) {
-        // If an error occurs, send an error response
-        console.error("Error executing query:", err);
-        res.status(500).json({ error: "Failed to fetch data" });
-    } else {
-        // If successful, send the fetched data as a response
-        res.json(result);
-    }
-});
-    
-});
-
-
-
-app.get('/getproducts',(req,res)=>{
-  const query = "SELECT * FROM  products";
-  con.query(query, (err, result) => {
-    if (err) {
-        // If an error occurs, send an error response
-        console.error("Error executing query:", err);
-        res.status(500).json({ error: "Failed to fetch data" });
-    } else {
-        // If successful, send the fetched data as a response
-        res.json(result);
-    }
-});
-    
-});
 
 
 
@@ -112,6 +80,8 @@ app.delete('/deluser', (req, res) => {
   });
 });
 
+
+app.use('/get', dataget)
 
 app.listen(1999,()=>{
     console.log('the server listen at posrt http://localhost:1999');

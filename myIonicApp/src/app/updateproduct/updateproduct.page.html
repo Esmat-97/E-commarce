@@ -1,13 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>updateproduct</ion-title>
-  </ion-toolbar>
-</ion-header>
+<form>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">updateproduct</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+  <div  >
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">price</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [value]="iti.price">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">id</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" [value]="iti.product_id">
+
+  </div>
+
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

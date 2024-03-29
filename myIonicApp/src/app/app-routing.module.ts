@@ -26,7 +26,8 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },  {
+  },
+  {
     path: 'addusers',
     loadChildren: () => import('./addusers/addusers.module').then( m => m.AddusersPageModule)
   },
@@ -35,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./myaccount/myaccount.module').then( m => m.MyaccountPageModule)
   },
   {
-    path: 'updateproduct',
+    path: 'updateproduct/:id',
     loadChildren: () => import('./updateproduct/updateproduct.module').then( m => m.UpdateproductPageModule)
   },
 

@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-home',
+  standalone:true,
+  imports:[FormsModule , IonicModule ,NgFor],
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
@@ -37,6 +42,14 @@ this.authservice.logout();
 del(id : number){
   console.log(`${id}`)
 this.http.delete(`http://localhost:1999/delproduct?id=${id}`).subscribe( (response)=>{
+})
+}
+
+UpdatedData:any ={};
+
+UpdateForm(main :any){
+this.UpdatedData = main.value
+this.http.put(`http://localhost:1999/delproduct`,this.UpdatedData).subscribe( (response)=>{
 })
 }
 

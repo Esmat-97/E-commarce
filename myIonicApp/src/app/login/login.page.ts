@@ -41,6 +41,7 @@ export class LoginPage  {
 
       localStorage.setItem('email',x.email);
       localStorage.setItem('role',x.role);
+      localStorage.setItem('username',x.username);
       
    }
  }

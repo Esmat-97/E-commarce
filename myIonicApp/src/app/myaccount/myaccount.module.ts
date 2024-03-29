@@ -6,8 +6,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { MyaccountPageRoutingModule } from './myaccount-routing.module';
 
-import { MyaccountPage } from './myaccount.page';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +13,6 @@ import { MyaccountPage } from './myaccount.page';
     IonicModule,
     MyaccountPageRoutingModule
   ],
-  declarations: [MyaccountPage]
+
 })
 export class MyaccountPageModule {}

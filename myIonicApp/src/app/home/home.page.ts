@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NgFor } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,14 @@ export class HomePage implements OnInit{
   products:any =[];
 
 
- constructor(private http:HttpClient ,private authservice:AuthService){}
+ constructor(private http:HttpClient ,private authservice:AuthService, private router:Router){}
+
+
+ logout(){
+  this.authservice.logout();
+   }
+
+
 
  ngOnInit(){
 
@@ -34,10 +42,6 @@ this.role=localStorage.getItem('role') as string;
  }
 
 
- logout(){
-this.authservice.logout();
- }
-
 
 del(id : number){
   console.log(`${id}`)
@@ -45,12 +49,10 @@ this.http.delete(`http://localhost:1999/delproduct?id=${id}`).subscribe( (respon
 })
 }
 
-UpdatedData:any ={};
 
-UpdateForm(main :any){
-this.UpdatedData = main.value
-this.http.put(`http://localhost:1999/delproduct`,this.UpdatedData).subscribe( (response)=>{
-})
+
+UpdateForm(){
+this.router.navigate(['/updateproduct'])
 }
 
 }

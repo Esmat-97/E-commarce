@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'myaccount',
     loadChildren: () => import('./myaccount/myaccount.module').then( m => m.MyaccountPageModule)
   },
+  {
+    path: 'updateproduct',
+    loadChildren: () => import('./updateproduct/updateproduct.module').then( m => m.UpdateproductPageModule)
+  },
 
 
 ];

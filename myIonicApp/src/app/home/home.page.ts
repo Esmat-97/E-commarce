@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { AddproductsPage } from '../addproducts/addproducts.page';
 
+
 @Component({
   selector: 'app-home',
   standalone:true,

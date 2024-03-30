@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NgFor } from '@angular/common';
 import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
+import { AddproductsPage } from '../addproducts/addproducts.page';
 
 @Component({
   selector: 'app-home',
   standalone:true,
-  imports:[FormsModule , IonicModule ,NgFor],
+  imports:[FormsModule , IonicModule ,NgFor,RouterLink,AddproductsPage],
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })

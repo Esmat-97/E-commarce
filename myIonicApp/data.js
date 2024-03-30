@@ -36,7 +36,7 @@ app.get('/getusers',(req,res)=>{
 
 
 app.get('/getproducts',(req,res)=>{
-  const query = "SELECT * FROM  products";
+  const query = "SELECT * FROM products INNER JOIN users ON products.user_id=users.user_id;";
   con.query(query, (err, result) => {
     if (err) {
     

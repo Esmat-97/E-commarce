@@ -42,7 +42,11 @@ const routes: Routes = [
   {
     path: 'updateuser/:id',
     loadChildren: () => import('./updateuser/updateuser.module').then( m => m.UpdateuserPageModule)
+  },  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
   },
+
 
 
 

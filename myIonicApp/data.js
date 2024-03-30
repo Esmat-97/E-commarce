@@ -111,10 +111,27 @@ app.delete('/deluser', (req, res) => {
   });
 });
 
+
+
 app.put('/updateproduct', (req, res) => {
   const { id, price } = req.body; 
   const query = 'UPDATE products SET price = ? WHERE product_id = ?';
   con.query(query, [  price , id], (error, results) => {
+    if (error) {
+      console.error('Error updating user:', error);
+      return res.status(500).send('Error updating user');
+    }
+    console.log('User updated in MySQL');
+    res.status(200).send('User updated in MySQL');
+  });
+});
+
+
+
+app.put('/updateuser', (req, res) => {
+  const { id, name } = req.body; 
+  const query = 'UPDATE users SET username = ? WHERE user_id = ?';
+  con.query(query, [  name , id], (error, results) => {
     if (error) {
       console.error('Error updating user:', error);
       return res.status(500).send('Error updating user');

@@ -7,7 +7,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      hello  {{role}}
+      hello  {{email}}
 
     </ion-title>
     <ion-buttons slot="end">
@@ -44,18 +44,40 @@
           <ion-label>addusers</ion-label>
         </ion-item>
       </ion-menu-toggle>
+
+
       <ion-menu-toggle auto-hide="false">
         <ion-item routerLink="/users">
           <ion-icon slot="start" name="people-outline"></ion-icon>
           <ion-label>users</ion-label>
         </ion-item>
       </ion-menu-toggle>
+
+
       <ion-menu-toggle auto-hide="false">
-        <ion-item routerLink="/languages">
-          <ion-icon slot="start" name="globe"></ion-icon>
-          <ion-label>Languages</ion-label>
+        <ion-item routerLink="/myaccount">
+          <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+          <ion-label>My account</ion-label>
         </ion-item>
       </ion-menu-toggle>
+
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/cart">
+          <ion-icon slot="start" name="cart-outline"></ion-icon>
+          <ion-label>cart</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item (click)="logout()">
+          <ion-icon slot="start" name="exit-outline"></ion-icon>
+          <ion-label>exit</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+ 
+
       <!-- Add more menu items as needed -->
     </ion-list>
 
@@ -91,8 +113,8 @@
                     <br>
                     <button class="btn btn-warning" (click)="UpdateForm(user.product_id)"><ion-icon name="exit-outline"></ion-icon></button>
                     <br>
-                    <!-- Button trigger modal -->
                   }
+                  <button class="btn btn-info" (click)="addtocart(user)"><ion-icon name="bag-add-outline"></ion-icon></button>
                 </div>
               </div>
             </div>

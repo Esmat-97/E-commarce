@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
+import { CartService } from '../cart.service';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NgFor } from '@angular/common';
@@ -19,16 +20,16 @@ import { AddproductsPage } from '../addproducts/addproducts.page';
 export class HomePage implements OnInit{
 
   role:string='';
+  email:string='';
 
   products:any =[];
 
 
- constructor(private http:HttpClient ,private authservice:AuthService, private router:Router){}
+ constructor(private http:HttpClient ,
+  private authservice:AuthService, 
+  private router:Router ,
+  private cartservice:CartService){}
 
-
- logout(){
-  this.authservice.logout();
-   }
 
 
 
@@ -39,6 +40,7 @@ console.log(res);
 this.products=res;
 
 this.role=localStorage.getItem('role') as string;
+this.email=localStorage.getItem('email') as string;
 
 })
 
@@ -57,5 +59,16 @@ this.http.delete(`http://localhost:1999/delproduct?id=${id}`).subscribe( (respon
 UpdateForm(id :number){
 this.router.navigate(['/updateproduct',id])
 }
+
+
+logout(){
+  this.authservice.logout();
+   }
+
+
+   addtocart(user :any){
+    console.log(user)
+    this.cartservice.addToCart(user)
+   }
 
 }

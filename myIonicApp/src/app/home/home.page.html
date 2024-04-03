@@ -31,27 +31,7 @@
   
     <ion-list>
       <!-- Menu items -->
-      <ion-menu-toggle auto-hide="false">
-        <ion-item routerLink="/addproducts">
-          <ion-icon  slot="start" name="document-outline"></ion-icon>
-          <ion-label>addproducts</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-
-      <ion-menu-toggle auto-hide="false">
-        <ion-item routerLink="/addusers">
-          <ion-icon slot="start" name="create-outline"></ion-icon>
-          <ion-label>addusers</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-
-
-      <ion-menu-toggle auto-hide="false">
-        <ion-item routerLink="/users">
-          <ion-icon slot="start" name="people-outline"></ion-icon>
-          <ion-label>users</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
+   
 
 
       <ion-menu-toggle auto-hide="false">
@@ -76,16 +56,39 @@
           <ion-label>exit</ion-label>
         </ion-item>
       </ion-menu-toggle>
-
+      @if(role === 'admin'){
 
       <ion-menu-toggle auto-hide="false">
         <ion-item  routerLink="/dashboard">
-          <ion-icon slot="start" name="exit-outline"></ion-icon>
+          <ion-icon slot="start" name="analytics-outline"></ion-icon>
           <ion-label>dashboard</ion-label>
         </ion-item>
       </ion-menu-toggle>
- 
 
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/addproducts">
+          <ion-icon  slot="start" name="document-outline"></ion-icon>
+          <ion-label>addproducts</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/addusers">
+          <ion-icon slot="start" name="create-outline"></ion-icon>
+          <ion-label>addusers</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/users">
+          <ion-icon slot="start" name="people-outline"></ion-icon>
+          <ion-label>users</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+ 
+    }
       <!-- Add more menu items as needed -->
     </ion-list>
 

@@ -18,8 +18,44 @@ database:'market'
 });
 
 
+app.get('/totalusers',(req,res)=>{
+
+  const query = "SELECT MAX (user_id) FROM users; 	";
+  con.query(query, (err, result) => {
+    if (err) {
+   
+        console.error("Error executing query:", err);
+        res.status(500).json({ error: "Failed to fetch data" });
+    } else {
+   
+        res.json(result);
+    }
+});
+    
+});
+
+
+
+app.get('/totalproducts',(req,res)=>{
+  
+  const query = "SELECT MAX (product_id) FROM products; 	";
+  con.query(query, (err, result) => {
+    if (err) {
+   
+        console.error("Error executing query:", err);
+        res.status(500).json({ error: "Failed to fetch data" });
+    } else {
+   
+        res.json(result);
+    }
+});
+    
+});
+
+
 
 app.get('/currentusers',(req,res)=>{
+
   const query = "SELECT COUNT (email) FROM users; 	";
   con.query(query, (err, result) => {
     if (err) {
@@ -33,6 +69,25 @@ app.get('/currentusers',(req,res)=>{
 });
     
 });
+
+
+
+app.get('/currentproducts',(req,res)=>{
+  
+  const query = "SELECT COUNT (product_name) FROM products; 	";
+  con.query(query, (err, result) => {
+    if (err) {
+   
+        console.error("Error executing query:", err);
+        res.status(500).json({ error: "Failed to fetch data" });
+    } else {
+   
+        res.json(result);
+    }
+});
+    
+});
+
 
 app.get('/getusers',(req,res)=>{
   const query = "SELECT * FROM  users";

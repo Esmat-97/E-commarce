@@ -18,6 +18,22 @@ database:'market'
 });
 
 
+
+app.get('/currentusers',(req,res)=>{
+  const query = "SELECT COUNT (email) FROM users; 	";
+  con.query(query, (err, result) => {
+    if (err) {
+   
+        console.error("Error executing query:", err);
+        res.status(500).json({ error: "Failed to fetch data" });
+    } else {
+   
+        res.json(result);
+    }
+});
+    
+});
+
 app.get('/getusers',(req,res)=>{
   const query = "SELECT * FROM  users";
   con.query(query, (err, result) => {

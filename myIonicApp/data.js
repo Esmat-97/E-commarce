@@ -72,6 +72,41 @@ app.get('/currentusers',(req,res)=>{
 
 
 
+app.get('/admins',(req,res)=>{
+
+  const query = "SELECT COUNT (email) FROM users where role='admin'; 	";
+  con.query(query, (err, result) => {
+    if (err) {
+   
+        console.error("Error executing query:", err);
+        res.status(500).json({ error: "Failed to fetch data" });
+    } else {
+   
+        res.json(result);
+    }
+});
+    
+});
+
+
+
+app.get('/customers',(req,res)=>{
+
+  const query = "SELECT COUNT (email) FROM users where role='customer'; 	";
+  con.query(query, (err, result) => {
+    if (err) {
+   
+        console.error("Error executing query:", err);
+        res.status(500).json({ error: "Failed to fetch data" });
+    } else {
+   
+        res.json(result);
+    }
+});
+    
+});
+
+
 app.get('/currentproducts',(req,res)=>{
   
   const query = "SELECT COUNT (product_name) FROM products; 	";
@@ -90,7 +125,7 @@ app.get('/currentproducts',(req,res)=>{
 
 
 
-
+/* get */
 
 
 app.get('/getusers',(req,res)=>{

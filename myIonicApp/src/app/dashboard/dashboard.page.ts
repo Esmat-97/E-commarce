@@ -13,11 +13,16 @@ export class DashboardPage implements OnInit {
 
   constructor(private htp:HttpClient) { }
 
+  admins:any=[];
+  customers:any=[];
   users:any=[];
   products:any=[];
   allusers:any=[];
   allproducts:any=[];
 
+
+  currentadmins:number=0;
+  currentcustomers:number=0;
   currentusers:number=0;
   currentproducts:number=0;
   totalusers:number=0;
@@ -59,6 +64,26 @@ export class DashboardPage implements OnInit {
       this.allproducts=res;
       this.allproducts.forEach((user: any) => {
         console.log( this.totalproducts=user['MAX (product_id)']);
+      });
+      
+    })
+
+
+
+    this.htp.get('http://localhost:1999/customers').subscribe( (res :any )=>{
+      this.customers=res;
+      this.customers.forEach((user: any) => {
+        console.log( this.currentcustomers=user['COUNT (email)']);
+      });
+      
+    })
+
+
+
+    this.htp.get('http://localhost:1999/admins').subscribe( (res :any )=>{
+      this.admins=res;
+      this.admins.forEach((user: any) => {
+        console.log( this.currentadmins=user['COUNT (email)']);
       });
       
     })

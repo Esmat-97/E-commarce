@@ -42,7 +42,8 @@ const routes: Routes = [
   {
     path: 'updateuser/:id',
     loadChildren: () => import('./updateuser/updateuser.module').then( m => m.UpdateuserPageModule)
-  },  {
+  },
+  {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
   },
@@ -50,9 +51,10 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
+
   {
-    path: 'reviews',
-    loadChildren: () => import('./reviews/reviews.module').then( m => m.ReviewsPageModule)
+    path: 'messages',
+    loadChildren: () => import('./messages/messages.module').then( m => m.MessagesPageModule)
   },
 
 

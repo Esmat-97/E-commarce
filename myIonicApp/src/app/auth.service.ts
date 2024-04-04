@@ -10,6 +10,8 @@ export class AuthService {
   logout(): void {
 localStorage.removeItem('email');
 localStorage.removeItem('role');
+localStorage.removeItem('username');
+localStorage.removeItem('cart');
   }
 
 

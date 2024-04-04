@@ -9,11 +9,14 @@ export class CartService {
   items :any= [];
 
   addToCart(product:any) {
-    this.items.push(product);
+
+  this.items.push(product);
+
+    localStorage.setItem('cart',  JSON.stringify (this.items))
   }
 
 
   getItems() {
-    return this.items;
+    return JSON.parse(localStorage.getItem('cart') || '[]');
   }
 }

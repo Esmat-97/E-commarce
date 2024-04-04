@@ -18,8 +18,10 @@ export class CartPage implements OnInit {
   constructor(private cart:CartService) { }
 
   ngOnInit(): void {
+
     this.items = this.cart.getItems();
-    console.log(this.items)
+    console.log(this.items);
+
   }
 
 

@@ -89,6 +89,10 @@ app.get('/currentproducts',(req,res)=>{
 });
 
 
+
+
+
+
 app.get('/getusers',(req,res)=>{
   const query = "SELECT * FROM  users";
   con.query(query, (err, result) => {
@@ -140,8 +144,6 @@ app.post('/api', (req, res) => {
 
 app.post('/insertproduct', (req, res) => {
   const { product, image, price , user_id , quantity_in_stock }= req.body;
-
-  // Insert data into MySQL
   const query = 'INSERT INTO products (product_name , image, price , quantity_in_stock, user_id ) VALUES (?,?,?,?,?)';
   con.query(query, [ product, image , price , quantity_in_stock , user_id ], (error, results) => {
 
@@ -183,6 +185,8 @@ app.delete('/deluser', (req, res) => {
 });
 
 
+
+/*  update products*/
 
 app.put('/updateproduct', (req, res) => {
   const { id, price } = req.body; 

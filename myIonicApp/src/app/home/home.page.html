@@ -51,12 +51,23 @@
 
 
       <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/addmessages">
+          <ion-icon slot="start" name="chatbubble-outline"></ion-icon>
+          <ion-label>add messaage</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+
+      <ion-menu-toggle auto-hide="false">
         <ion-item (click)="logout()">
           <ion-icon slot="start" name="exit-outline"></ion-icon>
           <ion-label>exit</ion-label>
         </ion-item>
       </ion-menu-toggle>
       @if(role === 'admin'){
+
+
+
 
       <ion-menu-toggle auto-hide="false">
         <ion-item  routerLink="/dashboard">
@@ -80,6 +91,13 @@
         </ion-item>
       </ion-menu-toggle>
 
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/messages">
+          <ion-icon slot="start" name="notifications-outline"></ion-icon>
+          <ion-label>add messaage</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
 
       <ion-menu-toggle auto-hide="false">
         <ion-item routerLink="/users">

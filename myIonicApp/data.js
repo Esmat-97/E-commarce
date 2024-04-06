@@ -190,6 +190,17 @@ app.post('/insertproduct', (req, res) => {
 
 
 
+app.post('/insertmsg', (req, res) => {
+  const { username ,email , content }= req.body;
+  const query = 'INSERT INTO messages ( username ,email , content) VALUES (?,?,?)';
+  con.query(query, [ username ,email , content ], (error, results) => {
+
+    if (error) throw error;
+    console.log('Data inserted into MySQL');
+    res.send('Data inserted into MySQL');
+  });
+});
+
 /* delete data */
 
 app.delete('/delproduct', (req, res) => {

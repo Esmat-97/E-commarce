@@ -1,0 +1,32 @@
+
+
+
+<form class="row g-3"  #main="ngForm" (ngSubmit)="submitForm(main)">
+
+
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label" >username</label>
+    <input type="text" class="form-control"  name="username"  placeholder="username"  required  #username="ngModel"  ngModel>
+  </div>
+
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label"> email</label>
+    <input type="text" class="form-control"   name="email"  placeholder="email"  required  #email="ngModel"  ngModel>
+  </div>
+
+
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">content</label>
+    <input type="text" class="form-control"   name="content"  placeholder="content"  required  #content="ngModel"  ngModel >
+  </div>
+
+
+ 
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
+</form>
+    
+

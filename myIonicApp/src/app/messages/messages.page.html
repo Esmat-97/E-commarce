@@ -1,13 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>messages</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="row row-cols-1 row-cols-md-3 g-6">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">messages</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+  <div class="col">
+    <div class="card text-bg-secondary mb-3">
+      <div class="card-body" *ngFor="let x of msgs">
+        <h5 class="card-title">name : {{x.username}}</h5>
+        <p class="card-text"> email : {{x.email}} </p>
+        <p class="card-text">content : {{x.content}} </p>
+      </div>
+    </div>
+  </div>
+
+
+ 
+  
+</div>

@@ -163,6 +163,25 @@ app.get('/getproducts',(req,res)=>{
 
 
 
+
+app.get('/getmsgs',(req,res)=>{
+  const query = "SELECT * FROM  messages;";
+  con.query(query, (err, result) => {
+    if (err) {
+    
+        console.error("Error executing query:", err);
+        res.status(500).json({ error: "Failed to fetch data" });
+    } else {
+      
+        res.json(result);
+    }
+});
+    
+});
+
+
+
+
 /* insert data */
 
 app.post('/api', (req, res) => {

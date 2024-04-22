@@ -25,5 +25,8 @@ $ ionic serve
 
 
 ```
-# Demo
+# Admin page
 ![Image Description](./src/assets/admin.png)
+
+# Customer page
+![Image Description](./src/assets/customer.png)

@@ -24,6 +24,6 @@ $ cd myIonicApp
 $ ionic serve
 
 
-
+```
 # Demo
 ![Image Description](./src/assets/admin.png)

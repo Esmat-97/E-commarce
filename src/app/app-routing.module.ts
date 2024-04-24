@@ -4,7 +4,7 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),canActivate: [AuthGuard]
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -55,9 +55,14 @@ const routes: Routes = [
   {
     path: 'messages',
     loadChildren: () => import('./messages/messages.module').then( m => m.MessagesPageModule)
-  },  {
+  },
+  {
     path: 'addmessages',
     loadChildren: () => import('./addmessages/addmessages.module').then( m => m.AddmessagesPageModule)
+  },
+  {
+    path: 'products',
+    loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule),canActivate: [AuthGuard]
   },
 
 

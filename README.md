@@ -24,7 +24,12 @@ $ cd myIonicApp
 $ ionic serve
 
 
+
 ```
+
+# Guest page
+![Image Description](./src/assets/guest%20page.jpg)
+
 # Admin page
 ![Image Description](./src/assets/admin.png)
 

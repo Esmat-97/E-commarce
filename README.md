@@ -28,7 +28,7 @@ $ ionic serve
 ```
 
 # Guest page
-![Image Description](./src/assets/guest%20page.jpg)
+![Image Description](./src/assets/guests.jpg)
 
 # Admin page
 ![Image Description](./src/assets/admin.png)

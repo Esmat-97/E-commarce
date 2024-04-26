@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterPage  {
 
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient , private use:UsersService){}
 
   signData:any={
     username:'',
@@ -21,13 +22,15 @@ export class RegisterPage  {
     password:''
   };
 
+
+
   submitForm(main: any) {
   
     this.signData=main.value;
   
     console.log('Form data submitted:', this.signData);
 
-    this.http.post('http://localhost:1999/api',this.signData).subscribe( response =>{
+    this.use.insertusers(this.signData).subscribe( response =>{
 
     console.log('Data sent successfully');
    

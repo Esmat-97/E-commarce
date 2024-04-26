@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ import { Router } from '@angular/router';
 
 export class LoginPage  {
 
-  constructor(private http:HttpClient ,private router:Router){}
+  constructor(private http:HttpClient ,private router:Router , private use:UsersService ){}
 
   signData:any={};
 
@@ -29,9 +30,9 @@ export class LoginPage  {
   
     this.signData=main.value;
 
-    this.http.get('http://localhost:1999/getusers').subscribe(  (response :any)=>{
+    this.use.getusers().subscribe(  (response :any)=>{
 
-      this.gettingData = response;
+      this.gettingData = response;      
 
    for( let x of this.gettingData){
     

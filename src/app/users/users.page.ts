@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { UsersService } from '../services/users.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -17,10 +18,10 @@ export class UsersPage  {
 
   productlist:any=[];
 
-  constructor(private htpp:HttpClient , private router:Router) { }
+  constructor(private use:UsersService , private router:Router ,private htpp:HttpClient) { }
 
   ngOnInit() {
-    this.htpp.get('http://localhost:1999/getusers').subscribe( (res :any ) =>{
+    this.use.getusers().subscribe( (res :any ) =>{
     console.log(res);
     this.productlist=res;
     })

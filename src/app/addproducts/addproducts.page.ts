@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { response } from 'express';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-addproducts',
@@ -21,7 +22,7 @@ export class AddproductsPage  {
 
   imageName:string='';
 
-  constructor(private htp:HttpClient) { }
+  constructor(private htp:HttpClient , private use:UsersService) { }
 
  
   onFileSelected(event: any) {
@@ -44,7 +45,7 @@ export class AddproductsPage  {
 
     console.log(this.product);
  
-    this.htp.post('http://localhost:1999/insertproduct',this.product).subscribe( response=>{
+    this.use.insertusers(this.product).subscribe( response=>{
 
     })
   }

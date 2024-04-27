@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
+
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-addusers',
@@ -14,7 +15,8 @@ import { HttpClient } from '@angular/common/http';
 
 export class AddusersPage {
 
-  constructor(private http:HttpClient){}
+  constructor(private use:UsersService
+  ){}
 
   signData:any={
     username:'',
@@ -28,7 +30,7 @@ export class AddusersPage {
   
     console.log('Form data submitted:', this.signData);
 
-    this.http.post('http://localhost:1999/api',this.signData).subscribe( response =>{
+    this.use.insertusers(this.signData).subscribe( response =>{
 
     console.log('Data sent successfully');
    

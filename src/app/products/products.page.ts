@@ -8,6 +8,7 @@ import { NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { AddproductsPage } from '../addproducts/addproducts.page';
+import { ProductsService } from '../services/products.service';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class ProductsPage implements OnInit{
 
 
  constructor(private http:HttpClient ,
+  private pro:ProductsService,
   private authservice:AuthService, 
   private router:Router ,
   private cartservice:CartService){}
@@ -35,7 +37,7 @@ export class ProductsPage implements OnInit{
 
  ngOnInit(){
 
-this.http.get('http://localhost:1999/getproducts').subscribe( (res:any)=>{
+this.pro.getproducts().subscribe( (res:any)=>{
 console.log(res);
 this.products=res;
 

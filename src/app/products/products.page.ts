@@ -52,7 +52,7 @@ this.email=localStorage.getItem('email') as string;
 
 del(id : number){
   console.log(`${id}`)
-this.http.delete(`http://localhost:1999/delproduct?id=${id}`).subscribe( (response)=>{
+this.pro.delproducts(id).subscribe( (response)=>{
 })
 }
 

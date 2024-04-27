@@ -19,4 +19,9 @@ insertproducts(product:any):Observable<any>{
   }
 
 
+  
+delproducts(id:any):Observable<any>{
+  return this.htp.delete<any>(`http://localhost:1999/delproduct?id=${id}`)
+  }
+
 }

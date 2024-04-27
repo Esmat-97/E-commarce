@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { NgFor } from '@angular/common';
 
 

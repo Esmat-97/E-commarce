@@ -20,6 +20,8 @@ export class UsersPage  {
 
   constructor(private use:UsersService , private router:Router ,private htpp:HttpClient) { }
 
+/* get */
+
   ngOnInit() {
     this.use.getusers().subscribe( (res :any ) =>{
     console.log(res);
@@ -28,8 +30,9 @@ export class UsersPage  {
     
   }
 
-  del(id :number){
+  /* delete */
 
+  del(id :number){
     console.log(`${id}`)
     this.use.delusers(id).subscribe( (res :any ) =>{
     })

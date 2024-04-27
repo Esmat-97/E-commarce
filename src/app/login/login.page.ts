@@ -21,28 +21,30 @@ export class LoginPage  {
 
   constructor(private http:HttpClient ,private router:Router , private use:UsersService ){}
 
-  signData:any={};
+  logindata:any={};
 
-  gettingData:any=[];
+  SQLdata:any=[];
 
 
   submitForm(main: any) {
   
-    this.signData=main.value;
+    this.logindata=main.value;
 
     this.use.getusers().subscribe(  (response :any)=>{
 
-      this.gettingData = response;      
+      this.SQLdata = response;      
 
-   for( let x of this.gettingData){
+   for( let x of this.SQLdata){
     
-   if (x.email === this.signData.email && x.password === this.signData.password){
+   if (x.email === this.logindata.email && x.password === this.logindata.password){
    
       this.router.navigate(['/home']);
 
       localStorage.setItem('email',x.email);
       localStorage.setItem('role',x.role);
       localStorage.setItem('username',x.username);
+      localStorage.setItem('user_id',x.user_id);
+
       
    }
  }

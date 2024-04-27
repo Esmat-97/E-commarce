@@ -22,7 +22,16 @@ export class AddproductsPage  {
 
   constructor( private pro:ProductsService) { }
 
- 
+  id:string='';
+
+  ngOnInit(){
+    this.id=localStorage.getItem('user_id') as string;
+    console.log(this.id)
+  }
+
+
+
+
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0]; // Get the first file selected by the user
     if (this.selectedFile) {
@@ -40,9 +49,6 @@ export class AddproductsPage  {
     if (this.selectedFile) {
       this.product.image = this.imageName;
     }
-
-    console.log(this.product);
- 
     this.pro.insertproducts(this.product).subscribe( response=>{
 
     })

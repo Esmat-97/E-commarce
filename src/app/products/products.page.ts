@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NgFor } from '@angular/common';
@@ -33,7 +33,7 @@ export class ProductsPage implements OnInit{
   private cartservice:CartService){}
 
 
-
+/* get */
 
  ngOnInit(){
 
@@ -48,7 +48,7 @@ this.email=localStorage.getItem('email') as string;
 
  }
 
-
+/* delete */
 
 del(id : number){
   console.log(`${id}`)

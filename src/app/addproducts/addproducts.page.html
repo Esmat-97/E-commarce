@@ -12,9 +12,11 @@
     <label for="inputPassword4" class="form-label"> price</label>
     <input type="text" class="form-control"   name="price"  placeholder="price"  required  #price="ngModel"  ngModel>
   </div>
+
+
   <div class="col-12">
     <label for="inputAddress" class="form-label">user_id</label>
-    <input type="text" class="form-control"   name="user_id"  placeholder="user_id"  required  #user_id="ngModel"  ngModel >
+    <input type="text" class="form-control"   name="user_id"    required  #user_id="ngModel"  [(ngModel)]="id" >
   </div>
 
 

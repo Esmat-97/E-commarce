@@ -11,8 +11,6 @@ export class UsersService {
 
 
   selectusers(email:any , password:any) :Observable<any[]>{
-    console.log(email)
-    console.log(password)
     return this.htp.get<any[]>(`http://localhost:1999/select?email=${email}&password=${password}`)
       }
 

@@ -27,28 +27,18 @@ export class LoginPage  {
 
 
   submitForm(main: any) {
-  
-    this.logindata=main.value;
+this.logindata=main.value
 
-    this.use.getusers().subscribe(  (response :any)=>{
+    this.use.selectusers(this.logindata.email , this.logindata.password).subscribe(  responses=>{
+     
+    const  response =responses[0]
 
-      this.SQLdata = response;      
-
-   for( let x of this.SQLdata){
-    
-   if (x.email === this.logindata.email && x.password === this.logindata.password){
-   
       this.router.navigate(['/home']);
 
-      localStorage.setItem('email',x.email);
-      localStorage.setItem('role',x.role);
-      localStorage.setItem('username',x.username);
-      localStorage.setItem('user_id',x.user_id);
-
-      
-   }
- }
-
+      localStorage.setItem('email',response.email);
+      localStorage.setItem('role',response.role);
+      localStorage.setItem('username',response.username);
+      localStorage.setItem('user_id',response.user_id);
 
 
    

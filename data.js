@@ -128,6 +128,24 @@ app.get('/currentproducts',(req,res)=>{
 /* get */
 
 
+
+app.get('/select', (req, res) => {
+  const { email, password } = req.query;
+  const query = 'SELECT * FROM users WHERE email = ? AND password = ?';
+  con.query(query, [email, password], (error, results) => {
+    if (error) {
+      console.error('Error executing the query:', error);
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+   
+    res.json(results);
+  });
+});
+
+
+
+
 app.get('/getusers',(req,res)=>{
   const query = "SELECT * FROM  users";
   con.query(query, (err, result) => {

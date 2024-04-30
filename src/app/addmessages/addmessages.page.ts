@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { MsgsService } from '../services/msgs.service';
 
 @Component({
   selector: 'app-addmessages',
@@ -12,14 +12,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddmessagesPage {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:MsgsService) { }
 
   messagevalue:any={}
   
   submitForm(main:any){
       this.messagevalue  =  main.value
       console.log(this.messagevalue)
-      this.http.post('http://localhost:1999/insertmsg',this.messagevalue).subscribe((res)=>{
+      this.http.insertmsgs(this.messagevalue).subscribe((res)=>{
 
       })
   }

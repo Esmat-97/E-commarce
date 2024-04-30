@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { NgFor } from '@angular/common';
+import { MsgsService } from '../services/msgs.service';
 
 @Component({
   selector: 'app-messages',
@@ -13,11 +13,11 @@ export class MessagesPage  {
 
   msgs:any=[];
 
-  constructor(private htpp:HttpClient) { }
+  constructor(private htpp:MsgsService) { }
 
   ngOnInit() {
 
-this.htpp.get('http://localhost:1999/getmsgs').subscribe( (res :any)=>{
+this.htpp.getmsgs().subscribe( (res :any)=>{
 this.msgs=res
 
 })
